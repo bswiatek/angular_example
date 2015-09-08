@@ -1,0 +1,43 @@
+    <h2>Zamawiam produkty</h2>
+    <form novalidate name="f">
+      <div class="form-group" ng-class="{
+                    'has-error' : f.name.$invalid,
+                    'has-success': f.name.$valid}">
+        <label>Imie i nazwisko</label>
+        <input name="name" class="form-control" type="text" ng-minlength="6" required ng-model="newOrder.name" />
+        <div ng-messages="f.name.$error" style="color:maroon" role="alert">
+          <div ng-message="required">You did not enter a field</div>
+          <div ng-message="minlength">Your field is too short</div>
+        </div>
+      </div>
+      <div class="form-group" ng-class="{
+                    'has-error' : f.street.$invalid,
+                    'has-success': f.street.$valid}">
+        <label>Ulica</label>
+        <input name="street" class="form-control" type="text" ng-minlength="3" required ng-model="newOrder.street" />
+        <div ng-messages="f.street.$error" style="color:maroon" role="alert">
+          <div ng-message="required">You did not enter a field</div>
+          <div ng-message="minlength">Your field is too short</div>
+        </div>
+      </div>
+      <div class="form-group" ng-class="{
+                    'has-error' : f.postalCode.$invalid && f.city.$invalid,
+                    'has-success': f.address.$valid && f.city.$valid}">
+        <label>Kod pocztowy i miasto</label>
+        <input name="postalCode" class="form-control" type="text" ng-maxlength="6" required ng-model="newOrder.postalCode" validator="postalCodeValidation(f.postalCode)" />
+        <div ng-messages="f.postalCode.$error" style="color:maroon" role="alert">
+          <div ng-message="required">You did not enter a field</div>
+          <div ng-message="maxlength">Your field is too long</div>
+        </div>
+        <input name="city" class="form-control" type="text" ng-minlength="3" required ng-model="newOrder.city" />
+        <div ng-messages="f.city.$error" style="color:maroon" role="alert">
+          <div ng-message="required">You did not enter a field</div>
+          <div ng-message="minlength">Your field is too short</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary" ng-disabled="f.$invalid" ng-click="addNewTodo(newTodo); newTodo = {}">
+          <span class="glyphicon glyphicon-plus"></span> Zamawiam
+        </button>
+      </div>
+    </form>
