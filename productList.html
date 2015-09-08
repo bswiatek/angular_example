@@ -1,0 +1,16 @@
+<div class="row">
+      <div class="col-sm-12">
+        <div class="list-group">
+          <product-item prod="todo" ng-repeat="todo in todos | filter:filtering | orderBy:sorting.by:sorting.desc | orderBy:'special':true"></product-item>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="shopping-cart">
+          <h3>koszyk</h3>
+          <product-item prod="todo" ng-repeat="todo in todos | filter:{'checked': true} | orderBy:sorting.by:sorting.desc | orderBy:'special':true"></product-item>
+        </div>
+      </div>
+    </div>
