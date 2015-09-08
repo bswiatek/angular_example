@@ -1,0 +1,7 @@
+  <button class="btn btn-xs btn-default" ng-click="sortBy(value)" ng-class="{'active' : sort.by === value}">
+    <span ng-show="sort.by === value">
+      <span class="glyphicon glyphicon-chevron-up" ng-show="!sort.desc"></span>
+      <span class="glyphicon glyphicon-chevron-down" ng-show="sort.desc"></span>
+    </span>
+      {{ text }}
+  </button>
