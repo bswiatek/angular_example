@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html ng-app="TodoApp">
+
+<head>
+  <meta charset="utf-8">
+  <title>AngularJS</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+  <style type="text/css">
+    .special {
+      background: #999;
+      padding: 5px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container" role="main" ng-controller="MyFirstCtrl">
+
+    <div class="row">
+      <div class="col-sm-12">
+        <sorting-button value="price" text="Price" sort="sorting"></sorting-button>
+        <sorting-button value="text" text="Name" sort="sorting"></sorting-button>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="input-group">
+          <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-search"></span>
+          </span>
+          <input type="text" class="form-control" ng-model="filtering.text">
+        </div>
+      </div>
+    </div>
+    <a ui-sref="productList">Lista produktow</a>
+    <a ui-sref="orderProduct">Dodaj produkt</a>
+    <div ui-view>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-12">
+        <h2>itunes</h2>
+        <div class="list-group">
+          <div class="list-group-item" ng-repeat="item in itunesTracks">
+            <div>
+              <span class="">{{ item.artist }}</span>
+            </div>
+            <div><span class="">{{ item.track }}</span></div>
+            <div><span class="">{{ item.price * exchange }}</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular-messages.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.js"></script>
+
+  <script src="main.js"></script>
+</body>
+
+</html>
