@@ -1,0 +1,16 @@
+              <div class="list-group-item">
+                <div ng-class="{'special': prod.special == true } ">
+                <div><img src="{{ prod.source }}" /></div>
+                <div>
+                  <a ng-repeat="tag in prod.tags" style="margin: 5px; padding: 2px; background: orange; cursor: pointer;">{{ tag }}</a>
+                </div>
+                
+                <div>
+                  <span class="">{{ prod.text }}</span>
+                  <span ng-show="showMoreMode">{{ prod.moretext }}</span>
+                  <button class="see-more" ng-click="showMoreMode = !showMoreMode">dalej</button>
+                </div>
+                <div><span class="">{{ prod.price }}</span></div>
+                <div><input type="checkbox" ng-model="prod.checked"/>Kupuje!</div>
+              </div>
+            </div>
